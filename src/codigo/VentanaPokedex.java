@@ -11,7 +11,10 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import javax.imageio.ImageIO;
+import java.sql.Statement;
 
 /**
  *
@@ -22,6 +25,9 @@ public class VentanaPokedex extends javax.swing.JFrame {
     BufferedImage buffer1 = null;
     Image imagen1 = null;
     int contador = 0;
+
+    Statement estado;
+    Connection conexion;
 
     public void paint(Graphics g) {
         super.paintComponents(g);
@@ -48,6 +54,16 @@ public class VentanaPokedex extends javax.swing.JFrame {
         Graphics2D g2 = buffer1.createGraphics();
 
         dibujaElPokemonQueEstaEnLaPosicion(30);
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conexion = DriverManager
+                    .getConnection("jdbc:mysql://10.0.2.15/test",
+            "root",
+            "");
+            estado = conexion.createStatement();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
