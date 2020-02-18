@@ -56,7 +56,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
                 imagenPokemon.getHeight());
         Graphics2D g2 = buffer1.createGraphics();
 
-        dibujaElPokemonQueEstaEnLaPosicion(30);
+        dibujaElPokemonQueEstaEnLaPosicion(1);
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conexion = DriverManager
