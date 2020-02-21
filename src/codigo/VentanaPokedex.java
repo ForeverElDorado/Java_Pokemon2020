@@ -105,11 +105,27 @@ public class VentanaPokedex extends javax.swing.JFrame {
         imagenPokemon = new javax.swing.JPanel();
         izq = new javax.swing.JButton();
         der = new javax.swing.JButton();
+        EspeciePokemon = new javax.swing.JLabel();
+        HabilidadPokemon = new javax.swing.JLabel();
+        Mov4 = new javax.swing.JLabel();
+        Mov3 = new javax.swing.JLabel();
+        Mov2 = new javax.swing.JLabel();
+        Mov1 = new javax.swing.JLabel();
         NombrePokemon = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         TipoPokemon = new javax.swing.JLabel();
-        Tipo2Pokemon = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        DescripcionPokemon = new javax.swing.JLabel();
         AlturaPokemon = new javax.swing.JLabel();
+        HabitatPokemon = new javax.swing.JLabel();
+        Tipo2Pokemon = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         PesoPokemon = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -148,6 +164,48 @@ public class VentanaPokedex extends javax.swing.JFrame {
         getContentPane().add(der);
         der.setBounds(180, 400, 57, 23);
 
+        EspeciePokemon.setBackground(new java.awt.Color(0, 0, 0));
+        EspeciePokemon.setForeground(new java.awt.Color(255, 255, 255));
+        EspeciePokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        EspeciePokemon.setOpaque(true);
+        getContentPane().add(EspeciePokemon);
+        EspeciePokemon.setBounds(620, 330, 110, 30);
+
+        HabilidadPokemon.setBackground(new java.awt.Color(0, 0, 0));
+        HabilidadPokemon.setForeground(new java.awt.Color(255, 255, 255));
+        HabilidadPokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        HabilidadPokemon.setOpaque(true);
+        getContentPane().add(HabilidadPokemon);
+        HabilidadPokemon.setBounds(620, 290, 110, 30);
+
+        Mov4.setBackground(new java.awt.Color(0, 0, 0));
+        Mov4.setForeground(new java.awt.Color(255, 255, 255));
+        Mov4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Mov4.setOpaque(true);
+        getContentPane().add(Mov4);
+        Mov4.setBounds(630, 230, 80, 30);
+
+        Mov3.setBackground(new java.awt.Color(0, 0, 0));
+        Mov3.setForeground(new java.awt.Color(255, 255, 255));
+        Mov3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Mov3.setOpaque(true);
+        getContentPane().add(Mov3);
+        Mov3.setBounds(630, 190, 80, 30);
+
+        Mov2.setBackground(new java.awt.Color(0, 0, 0));
+        Mov2.setForeground(new java.awt.Color(255, 255, 255));
+        Mov2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Mov2.setOpaque(true);
+        getContentPane().add(Mov2);
+        Mov2.setBounds(480, 230, 110, 30);
+
+        Mov1.setBackground(new java.awt.Color(0, 0, 0));
+        Mov1.setForeground(new java.awt.Color(255, 255, 255));
+        Mov1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Mov1.setOpaque(true);
+        getContentPane().add(Mov1);
+        Mov1.setBounds(480, 190, 110, 30);
+
         NombrePokemon.setBackground(new java.awt.Color(0, 0, 0));
         NombrePokemon.setForeground(new java.awt.Color(255, 255, 255));
         NombrePokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -156,12 +214,52 @@ public class VentanaPokedex extends javax.swing.JFrame {
         getContentPane().add(NombrePokemon);
         NombrePokemon.setBounds(94, 450, 130, 70);
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("4º");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(600, 230, 20, 20);
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("3º");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(600, 200, 20, 20);
+
         TipoPokemon.setBackground(new java.awt.Color(0, 0, 0));
         TipoPokemon.setForeground(new java.awt.Color(255, 255, 255));
         TipoPokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TipoPokemon.setOpaque(true);
         getContentPane().add(TipoPokemon);
         TipoPokemon.setBounds(230, 340, 80, 40);
+
+        jLabel9.setText("Especie");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(570, 340, 50, 14);
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("2º");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(460, 240, 20, 20);
+
+        DescripcionPokemon.setBackground(new java.awt.Color(0, 0, 0));
+        DescripcionPokemon.setForeground(new java.awt.Color(255, 255, 255));
+        DescripcionPokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DescripcionPokemon.setOpaque(true);
+        getContentPane().add(DescripcionPokemon);
+        DescripcionPokemon.setBounds(450, 390, 250, 130);
+
+        AlturaPokemon.setBackground(new java.awt.Color(0, 0, 0));
+        AlturaPokemon.setForeground(new java.awt.Color(255, 255, 255));
+        AlturaPokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AlturaPokemon.setOpaque(true);
+        getContentPane().add(AlturaPokemon);
+        AlturaPokemon.setBounds(520, 330, 40, 30);
+
+        HabitatPokemon.setBackground(new java.awt.Color(0, 0, 0));
+        HabitatPokemon.setForeground(new java.awt.Color(255, 255, 255));
+        HabitatPokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        HabitatPokemon.setOpaque(true);
+        getContentPane().add(HabitatPokemon);
+        HabitatPokemon.setBounds(200, 100, 110, 30);
 
         Tipo2Pokemon.setBackground(new java.awt.Color(0, 0, 0));
         Tipo2Pokemon.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,19 +268,29 @@ public class VentanaPokedex extends javax.swing.JFrame {
         getContentPane().add(Tipo2Pokemon);
         Tipo2Pokemon.setBounds(90, 340, 80, 40);
 
-        AlturaPokemon.setBackground(new java.awt.Color(0, 0, 0));
-        AlturaPokemon.setForeground(new java.awt.Color(255, 255, 255));
-        AlturaPokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        AlturaPokemon.setOpaque(true);
-        getContentPane().add(AlturaPokemon);
-        AlturaPokemon.setBounds(460, 330, 40, 30);
+        jLabel8.setText("Hab");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(570, 300, 30, 14);
 
         PesoPokemon.setBackground(new java.awt.Color(0, 0, 0));
         PesoPokemon.setForeground(new java.awt.Color(255, 255, 255));
         PesoPokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PesoPokemon.setOpaque(true);
         getContentPane().add(PesoPokemon);
-        PesoPokemon.setBounds(460, 290, 50, 30);
+        PesoPokemon.setBounds(510, 290, 50, 30);
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("1º");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(460, 200, 20, 20);
+
+        jLabel2.setText("Kg");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(470, 300, 12, 14);
+
+        jLabel3.setText("Metros");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(470, 340, 34, 14);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pokedex_1.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -199,14 +307,14 @@ public class VentanaPokedex extends javax.swing.JFrame {
             if (resultadoConsulta.last()) {
                 NombrePokemon.setText(resultadoConsulta.getString(2));
                 TipoPokemon.setText(resultadoConsulta.getString(7));
-                Tipo2Pokemon.setText(resultadoConsulta.getString(8));
-                PesoPokemon.setText(resultadoConsulta.getString(4));
+                DescripcionPokemon.setText(resultadoConsulta.getString(8));
+                HabitatPokemon.setText(resultadoConsulta.getString(4));
                 AlturaPokemon.setText(resultadoConsulta.getString(3));
             } else {
                 NombrePokemon.setText("Este pokemon no figura en la pokedex");
                 TipoPokemon.setText("Este pokemon no figura en la pokedex");
-                Tipo2Pokemon.setText("Este pokemon no figura en la pokedex");
-                PesoPokemon.setText("Este pokemon no figura en la pokedex");
+                DescripcionPokemon.setText("Este pokemon no figura en la pokedex");
+                HabitatPokemon.setText("Este pokemon no figura en la pokedex");
                 AlturaPokemon.setText("Este pokemon no figura en la pokedex");
             }
         } catch (SQLException ex) {
@@ -234,15 +342,15 @@ public class VentanaPokedex extends javax.swing.JFrame {
                  */
                 NombrePokemon.setText(resultadoConsulta.getString(2));
                 AlturaPokemon.setText(resultadoConsulta.getString(3));
-                PesoPokemon.setText(resultadoConsulta.getString(4));
+                HabitatPokemon.setText(resultadoConsulta.getString(4));
                 TipoPokemon.setText(resultadoConsulta.getString(7));
-                Tipo2Pokemon.setText(resultadoConsulta.getString(8));
+                DescripcionPokemon.setText(resultadoConsulta.getString(8));
 
             } else {
                 NombrePokemon.setText("Este pokemon no figura en la pokedex");
                 TipoPokemon.setText("Este pokemon no figura en la pokedex");
-                Tipo2Pokemon.setText("Este pokemon no figura en la pokedex");
-                PesoPokemon.setText("Este pokemon no figura en la pokedex");
+                DescripcionPokemon.setText("Este pokemon no figura en la pokedex");
+                HabitatPokemon.setText("Este pokemon no figura en la pokedex");
                 AlturaPokemon.setText("Este pokemon no figura en la pokedex");
             }
         } catch (SQLException ex) {
@@ -292,6 +400,14 @@ public class VentanaPokedex extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AlturaPokemon;
+    private javax.swing.JLabel DescripcionPokemon;
+    private javax.swing.JLabel EspeciePokemon;
+    private javax.swing.JLabel HabilidadPokemon;
+    private javax.swing.JLabel HabitatPokemon;
+    private javax.swing.JLabel Mov1;
+    private javax.swing.JLabel Mov2;
+    private javax.swing.JLabel Mov3;
+    private javax.swing.JLabel Mov4;
     private javax.swing.JLabel NombrePokemon;
     private javax.swing.JLabel PesoPokemon;
     private javax.swing.JLabel Tipo2Pokemon;
@@ -300,5 +416,13 @@ public class VentanaPokedex extends javax.swing.JFrame {
     private javax.swing.JPanel imagenPokemon;
     private javax.swing.JButton izq;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
