@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.imageio.ImageIO;
 import java.sql.Statement;
 import java.util.HashMap;
@@ -24,18 +23,18 @@ import java.util.HashMap;
  * @author xp
  */
 public class VentanaPokedex extends javax.swing.JFrame {
-    
+
     BufferedImage buffer1 = null;
     Image imagen1 = null;
     int contador = 1;
-    
+
     Statement estado;
     Connection conexion;
     //Declaramos para guardar el Hashmap y todo el contenido de la base de datos de golpe
     HashMap<String, Pokemon> listaPokemon = new HashMap();
     ////////////////
     ResultSet resultadoConsulta;
-    
+
     public void paint(Graphics g) {
         super.paintComponents(g);
         Graphics2D g2 = (Graphics2D) imagenPokemon.getGraphics();
@@ -54,12 +53,12 @@ public class VentanaPokedex extends javax.swing.JFrame {
                     .getResource("/imagenes/black-white.png"));
         } catch (IOException ex) {
         }
-        
+
         buffer1 = (BufferedImage) imagenPokemon.createImage(
                 imagenPokemon.getWidth(),
                 imagenPokemon.getHeight());
         Graphics2D g2 = buffer1.createGraphics();
-        
+
         dibujaElPokemonQueEstaEnLaPosicion(0);
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -84,16 +83,18 @@ public class VentanaPokedex extends javax.swing.JFrame {
                 p.altura = resultadoConsulta.getString("altura");
                 p.habilidad = resultadoConsulta.getString("habilidad");
                 p.habitad = resultadoConsulta.getString("habitat");
-                
+
                 listaPokemon.put(resultadoConsulta.getString("id"), p);
                 listaPokemon.put(resultadoConsulta.getString("tipo1"), p);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
+        sonidoDeFondo s = new sonidoDeFondo();
+        s.start();
+
     }
-    
+
     private void dibujaElPokemonQueEstaEnLaPosicion(int posicion) {
         int fila = posicion / 31;
         int columna = posicion % 31;
@@ -114,7 +115,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
                 null //si no lo pones no va
         );
         repaint();
-        
+
     }
 
     /**
@@ -325,41 +326,12 @@ public class VentanaPokedex extends javax.swing.JFrame {
 
     private void izqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_izqActionPerformed
         // TODO add your handling code here:
-       
+
         contador--;
         if (contador <= 0) {
             contador = 0;
         }
-         dibujaElPokemonQueEstaEnLaPosicion(contador);//porque en el png los pokemon empiezan en el 0
-         Pokemon p = listaPokemon.get(String.valueOf(contador+1));
-        if (p != null) {
-            NombrePokemon.setText(p.nombre);
-            TipoPokemon.setText(p.tipo1);
-            Tipo2Pokemon.setText(p.tipo2);
-            PesoPokemon.setText(p.peso);
-            AlturaPokemon.setText(p.altura);
-            Ataque1.setText(p.movimiento1);
-            Ataque2.setText(p.movimiento2);
-            Ataque3.setText(p.movimiento3);
-            Ataque4.setText(p.movimiento4);
-            DescripcionPokemon.setText(p.descripcion);
-            EspeciePokemon.setText(p.especie);
-            HabitadPokemon.setText(p.habitad);
-            HabilidadPokemon.setText(p.habilidad);
-        } else {
-            NombrePokemon.setText("NO HAY DATOS");
-        }
-
-    }//GEN-LAST:event_izqActionPerformed
-
-    private void derActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_derActionPerformed
-        // TODO add your handling code here:
-       
-        contador++;
-        if (contador >= 150) {
-            contador = 150;
-        }
-         dibujaElPokemonQueEstaEnLaPosicion(contador);
+        dibujaElPokemonQueEstaEnLaPosicion(contador);//porque en el png los pokemon empiezan en el 0
         Pokemon p = listaPokemon.get(String.valueOf(contador + 1));
         if (p != null) {
             NombrePokemon.setText(p.nombre);
@@ -375,12 +347,60 @@ public class VentanaPokedex extends javax.swing.JFrame {
             EspeciePokemon.setText(p.especie);
             HabitadPokemon.setText(p.habitad);
             HabilidadPokemon.setText(p.habilidad);
+            sonidoPasar s = new sonidoPasar();
+            s.start();
         } else {
             NombrePokemon.setText("NO HAY DATOS");
         }
-        
+
+    }//GEN-LAST:event_izqActionPerformed
+
+    private void derActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_derActionPerformed
+        // TODO add your handling code here:
+
+        contador++;
+        if (contador >= 150) {
+            contador = 150;
+        }
+        dibujaElPokemonQueEstaEnLaPosicion(contador);
+        Pokemon p = listaPokemon.get(String.valueOf(contador + 1));
+        if (p != null) {
+            NombrePokemon.setText(p.nombre);
+            TipoPokemon.setText(p.tipo1);
+            Tipo2Pokemon.setText(p.tipo2);
+            PesoPokemon.setText(p.peso);
+            AlturaPokemon.setText(p.altura);
+            Ataque1.setText(p.movimiento1);
+            Ataque2.setText(p.movimiento2);
+            Ataque3.setText(p.movimiento3);
+            Ataque4.setText(p.movimiento4);
+            DescripcionPokemon.setText(p.descripcion);
+            EspeciePokemon.setText(p.especie);
+            HabitadPokemon.setText(p.habitad);
+            HabilidadPokemon.setText(p.habilidad);
+            sonidoPasar s = new sonidoPasar();
+            s.start();
+        } else {
+            NombrePokemon.setText("NO HAY DATOS");
+        }
+
 
     }//GEN-LAST:event_derActionPerformed
+    public class sonidoPasar extends Thread {//Creamos un hilo para que  												
+
+        public void run() {                     //reproduzca el sonido a la vez
+            pokedexSonidos s = new pokedexSonidos(); //que sigue el juego
+            s.ReproducirSonido(s.getClass().getResource("/sonidos/sonidoPasar.wav").getFile(), 3000);
+        }
+    }
+
+    public class sonidoDeFondo extends Thread {//Creamos un hilo para que  												
+
+        public void run() {                     //reproduzca el sonido a la vez
+            pokedexSonidos s = new pokedexSonidos(); //que sigue el juego
+            s.ReproducirSonido(s.getClass().getResource("/sonidos/bso.wav").getFile(), 100000);
+        }
+    }
 
     /**
      * @param args the command line arguments
