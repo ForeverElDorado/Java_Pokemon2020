@@ -17,6 +17,8 @@ import java.sql.ResultSet;
 import javax.imageio.ImageIO;
 import java.sql.Statement;
 import java.util.HashMap;
+import javax.swing.UIDefaults;
+import javax.swing.plaf.ColorUIResource;
 
 /**
  *
@@ -48,6 +50,13 @@ public class VentanaPokedex extends javax.swing.JFrame {
      */
     public VentanaPokedex() {
         initComponents();
+        Color bgColor = Color.BLACK;
+        UIDefaults defaults = new UIDefaults();
+        defaults.put("TextPane.background", new ColorUIResource(bgColor));
+        defaults.put("TextPane[Enabled].backgroundPainter", bgColor);
+        descripcionPokemon.putClientProperty("Nimbus.Overrides", defaults);
+        descripcionPokemon.putClientProperty("Nimbus.Overrides.InheritDefaults", true);
+        descripcionPokemon.setBackground(bgColor);
         try {
             imagen1 = ImageIO.read(getClass()
                     .getResource("/imagenes/black-white.png"));
@@ -129,7 +138,6 @@ public class VentanaPokedex extends javax.swing.JFrame {
 
         imagenPokemon = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        DescripcionPokemon = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -150,6 +158,8 @@ public class VentanaPokedex extends javax.swing.JFrame {
         der = new javax.swing.JButton();
         izq = new javax.swing.JButton();
         TipoPokemon = new javax.swing.JLabel();
+        nose = new javax.swing.JScrollPane();
+        descripcionPokemon = new javax.swing.JTextPane();
         Tipo2Pokemon = new javax.swing.JLabel();
         pokedex = new javax.swing.JLabel();
 
@@ -175,13 +185,6 @@ public class VentanaPokedex extends javax.swing.JFrame {
         jLabel3.setText("m");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(510, 360, 20, 20);
-
-        DescripcionPokemon.setBackground(new java.awt.Color(0, 0, 0));
-        DescripcionPokemon.setFont(new java.awt.Font("Vollkorn Bold", 0, 11)); // NOI18N
-        DescripcionPokemon.setForeground(new java.awt.Color(255, 255, 255));
-        DescripcionPokemon.setOpaque(true);
-        getContentPane().add(DescripcionPokemon);
-        DescripcionPokemon.setBounds(440, 390, 270, 150);
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -310,6 +313,15 @@ public class VentanaPokedex extends javax.swing.JFrame {
         getContentPane().add(TipoPokemon);
         TipoPokemon.setBounds(170, 420, 70, 30);
 
+        nose.setBackground(new java.awt.Color(255, 255, 255));
+
+        descripcionPokemon.setBackground(new java.awt.Color(0, 0, 0));
+        descripcionPokemon.setForeground(new java.awt.Color(255, 255, 255));
+        nose.setViewportView(descripcionPokemon);
+
+        getContentPane().add(nose);
+        nose.setBounds(428, 392, 290, 150);
+
         Tipo2Pokemon.setBackground(new java.awt.Color(0, 0, 0));
         Tipo2Pokemon.setForeground(new java.awt.Color(255, 255, 255));
         Tipo2Pokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -343,7 +355,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
             Ataque2.setText(p.movimiento2);
             Ataque3.setText(p.movimiento3);
             Ataque4.setText(p.movimiento4);
-            DescripcionPokemon.setText(p.descripcion);
+            descripcionPokemon.setText(p.descripcion);
             EspeciePokemon.setText(p.especie);
             HabitadPokemon.setText(p.habitad);
             HabilidadPokemon.setText(p.habilidad);
@@ -374,7 +386,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
             Ataque2.setText(p.movimiento2);
             Ataque3.setText(p.movimiento3);
             Ataque4.setText(p.movimiento4);
-            DescripcionPokemon.setText(p.descripcion);
+            descripcionPokemon.setText(p.descripcion);
             EspeciePokemon.setText(p.especie);
             HabitadPokemon.setText(p.habitad);
             HabilidadPokemon.setText(p.habilidad);
@@ -443,7 +455,6 @@ public class VentanaPokedex extends javax.swing.JFrame {
     private javax.swing.JLabel Ataque2;
     private javax.swing.JLabel Ataque3;
     private javax.swing.JLabel Ataque4;
-    private javax.swing.JLabel DescripcionPokemon;
     private javax.swing.JLabel EspeciePokemon;
     private javax.swing.JLabel HabilidadPokemon;
     private javax.swing.JLabel HabitadPokemon;
@@ -452,6 +463,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
     private javax.swing.JLabel Tipo2Pokemon;
     private javax.swing.JLabel TipoPokemon;
     private javax.swing.JButton der;
+    private javax.swing.JTextPane descripcionPokemon;
     private javax.swing.JPanel imagenPokemon;
     private javax.swing.JButton izq;
     private javax.swing.JLabel jLabel10;
@@ -462,6 +474,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane nose;
     private javax.swing.JLabel pokedex;
     // End of variables declaration//GEN-END:variables
 }
