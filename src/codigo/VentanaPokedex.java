@@ -17,6 +17,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.imageio.ImageIO;
 import java.sql.Statement;
+import javax.swing.UIDefaults;
+import javax.swing.plaf.ColorUIResource;
 
 /**
  *
@@ -45,6 +47,13 @@ public class VentanaPokedex extends javax.swing.JFrame {
      */
     public VentanaPokedex() {
         initComponents();
+        Color bgColor = Color.BLACK;
+        UIDefaults defaults = new UIDefaults();
+        defaults.put("TextPane.background", new ColorUIResource(bgColor));
+        defaults.put("TextPane[Enabled].backgroundPainter", bgColor);
+        descripcionPokemon.putClientProperty("Nimbus.Overrides", defaults);
+        descripcionPokemon.putClientProperty("Nimbus.Overrides.InheritDefaults", true);
+        descripcionPokemon.setBackground(bgColor);
         try {
             imagen1 = ImageIO.read(getClass()
                     .getResource("/imagenes/black-white.png"));
@@ -121,7 +130,8 @@ public class VentanaPokedex extends javax.swing.JFrame {
         Tipo2Pokemon = new javax.swing.JLabel();
         AlturaPokemon = new javax.swing.JLabel();
         PesoPokemon = new javax.swing.JLabel();
-        DescripcionPokemon = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descripcionPokemon = new javax.swing.JTextPane();
         jLabel8 = new javax.swing.JLabel();
         HabitatPokemon = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -256,12 +266,12 @@ public class VentanaPokedex extends javax.swing.JFrame {
         getContentPane().add(PesoPokemon);
         PesoPokemon.setBounds(510, 290, 40, 30);
 
-        DescripcionPokemon.setBackground(new java.awt.Color(0, 0, 0));
-        DescripcionPokemon.setForeground(new java.awt.Color(255, 255, 255));
-        DescripcionPokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DescripcionPokemon.setOpaque(true);
-        getContentPane().add(DescripcionPokemon);
-        DescripcionPokemon.setBounds(450, 370, 270, 140);
+        descripcionPokemon.setBackground(new java.awt.Color(0, 0, 0));
+        descripcionPokemon.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(descripcionPokemon);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(440, 370, 280, 150);
 
         jLabel8.setText("Hab");
         getContentPane().add(jLabel8);
@@ -313,7 +323,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
                 Mov2.setText(resultadoConsulta.getString(11));
                 Mov3.setText(resultadoConsulta.getString(12));
                 Mov4.setText(resultadoConsulta.getString(13));
-                DescripcionPokemon.setText(resultadoConsulta.getString(16));
+                descripcionPokemon.setText(resultadoConsulta.getString(16));
                 sonidoPasar s = new sonidoPasar();
                 s.start();
 
@@ -359,7 +369,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
                 Mov2.setText(resultadoConsulta.getString(11));
                 Mov3.setText(resultadoConsulta.getString(12));
                 Mov4.setText(resultadoConsulta.getString(13));
-                DescripcionPokemon.setText(resultadoConsulta.getString(16));
+                descripcionPokemon.setText(resultadoConsulta.getString(16));
                 sonidoPasar s = new sonidoPasar();
                 s.start();
             } else {
@@ -431,7 +441,6 @@ public class VentanaPokedex extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AlturaPokemon;
-    private javax.swing.JLabel DescripcionPokemon;
     private javax.swing.JLabel EspeciePokemon;
     private javax.swing.JLabel HabilidadPokemon;
     private javax.swing.JLabel HabitatPokemon;
@@ -444,6 +453,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
     private javax.swing.JLabel Tipo2Pokemon;
     private javax.swing.JLabel TipoPokemon;
     private javax.swing.JButton der;
+    private javax.swing.JTextPane descripcionPokemon;
     private javax.swing.JPanel imagenPokemon;
     private javax.swing.JButton izq;
     private javax.swing.JLabel jLabel1;
@@ -455,5 +465,6 @@ public class VentanaPokedex extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
