@@ -5,10 +5,27 @@
  */
 package codigo;
 
+import java.applet.AudioClip;
+import java.net.URL;
+
 /**
  *
  * @author aghsk
  */
 public class pokedexSonidos {
 
+    public void ReproducirSonido(String fichero, int Tiempo) {
+        AudioClip sonido;
+        URL url;
+        try {
+            url = new URL("file:" + fichero);
+            sonido = java.applet.Applet.newAudioClip(url);
+            sonido.play();
+            Thread.sleep(Tiempo);
+            sonido.loop();
+            sonido.stop();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
